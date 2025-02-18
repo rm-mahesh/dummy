@@ -21,8 +21,8 @@ jobs:
     
     - name: Test secrets
       run : |
-        echo ${{secrets.DUMMY_SECRET}}
-        echo ${{secrets.DUMMY_SECRET1}}
+        echo ${{ secrets.DUMMY_SECRET }}
+        echo ${{ secrets.DUMMY_SECRET_1 }}
     
     - name: Run program
       run: |
