@@ -20,9 +20,11 @@ jobs:
         python -m pip install --upgrade pip
     
     - name: Test secrets
-      run : |
-        echo ${{ secrets.DUMMY_SECRET }}
-        echo ${{ secrets.DUMMY_SECRET_1 }}
+      run : "secret is : $DUMMY , secret is : $DUMMY2, githubvar : $GITHUB_TOKEN"
+      env :
+            DUMMY: ${{ secrets.DUMMY_SECRET }}
+            DUMMY2: ${{ secrets.DUMMY_SECRET_1 }}
+            githubvar: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Run program
       run: |
