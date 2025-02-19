@@ -32,3 +32,5 @@ jobs:
     - name: Run program
       run: |
         python printex.py
+      env : 
+        DUMMY: ${{ secrets.DUMMY_SECRET }}
