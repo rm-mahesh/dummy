@@ -1,10 +1,10 @@
 import os
-DUMMY = os.getenv("DUMMY_SECRET")
+DUMMYY = os.getenv("DUMMY_SECRET")
 
 
 print("Hello am new to github")
-if DUMMY is not None:
+if DUMMYY is not None:
     print("Goog to go")
 else:
     print("Issue exists broo")
-print(f'secret : {DUMMY}')
+print(f'secret : {DUMMYY}')
