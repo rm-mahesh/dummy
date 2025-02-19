@@ -1,4 +1,6 @@
 import os
+print(os.environ)
+
 DUMMYY = os.getenv("DUMMY_SECRET")
 
 
