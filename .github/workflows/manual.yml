@@ -20,9 +20,10 @@ jobs:
         python -m pip install --upgrade pip
     
     - name: Test secrets
-      run : "secret is : $DUMMY "
-      env :
-            DUMMY: $ {{ secrets.DUMMY_SECRET }}
+      run: |
+        echo "name is: $DUMMY"
+      env: 
+        DUMMY: ${{ secrets.DUMMY_SECRET }}
     
     - name: Run program
       run: |
