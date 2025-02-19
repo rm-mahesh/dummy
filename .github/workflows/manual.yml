@@ -22,7 +22,7 @@ jobs:
     - name: Test secrets
       run : "secret is : $DUMMY "
       env :
-            DUMMY: ${{ secrets.DUMMY_SECRET }}
+            DUMMY: $ {{ secrets.DUMMY_SECRET }}
     
     - name: Run program
       run: |
