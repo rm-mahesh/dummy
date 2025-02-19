@@ -33,3 +33,7 @@ jobs:
       run: python printex.py
       env : 
         DUMMYY: ${{ secrets.DUMMY_SECRET }}
+    
+    - name: Debug Environment Variables
+      run: printenv | sort
+      
