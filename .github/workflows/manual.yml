@@ -21,7 +21,11 @@ jobs:
     
     - name: Test secrets
       run: |
-        echo "name is: $DUMMY"
+        if [[ -z "$DUMMY" ]]; then
+        echo "❌ Secret is empty!"
+        else
+        echo "✅ Secret is set!"
+        fi
       env: 
         DUMMY: ${{ secrets.DUMMY_SECRET }}
     
