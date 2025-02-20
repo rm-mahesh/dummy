@@ -25,10 +25,10 @@ jobs:
     
     - name: Create and Load .env File
       run: |
-        echo "API_KEY=abcdef12345" >> .env
-        echo "DB_USER=root" >> .env
-        echo "DB_PASS=supersecure" >> .env
-        grep -v '^#' .env | xargs -d '\n' >> $GITHUB_ENV
+        echo "API_KEY=abcdef12345" >> $GITHUB_ENV
+        echo "DB_USER=root" >> $GITHUB_ENV
+        echo "DB_PASS=supersecure" >> $GITHUB_ENV
+        
 
     - name: Debug Environment Variables
       run: |
