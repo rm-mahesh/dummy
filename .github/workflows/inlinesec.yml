@@ -30,3 +30,7 @@ jobs:
         echo "DB_PASS=supersecure" >> .env
         grep -v '^#' .env | xargs -d '\n' >> $GITHUB_ENV
 
+    - name: Debug Environment Variables
+      run: |
+          echo "Checking DB_USER: $DB_USER"
+          echo "Checking DB_PASS: $DB_PASS"
