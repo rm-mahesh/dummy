@@ -24,9 +24,9 @@ jobs:
       run: python printex.py
     
     - name: srts example
-      run: export $(grep -v '^#' .env | xargs) 
+      run: |
+          export $(grep -v '^#' .env | xargs) 
+          echo "first one is $SECRET1"
+          echo "second is $SECRET2"
      
-    - name: using env vars
-      run : |
-        echo "first one is $SECRET1"
-        echo "second is $SECRET2"
+
