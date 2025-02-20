@@ -16,3 +16,10 @@ secret4=os.environ.get("DB_PASS")
 
 print(secret3,secret4)
 print("*************************************")
+print("******* SECRETS FROM GITHUB ACTIONS ********")
+
+temp1 = os.environ.get("DUMMY_SECRET")
+temp2 = os.environ.get("DUMMY_SECRET_1")
+
+print(f"DB_USER: {temp1}")  # Should print "root"
+print(f"DB_PASS: {temp2}")
