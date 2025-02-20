@@ -25,7 +25,7 @@ jobs:
     
     - name: srts example
       run: |
-          export $(grep -v '^#' .env | xargs) 
+          export $(grep -v '^#' secrets.env | xargs) 
           echo "first one is $SECRET1"
           echo "second is $SECRET2"
     - name: Debug File Location
