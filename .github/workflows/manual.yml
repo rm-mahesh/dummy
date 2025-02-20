@@ -28,5 +28,6 @@ jobs:
           export $(grep -v '^#' .env | xargs) 
           echo "first one is $SECRET1"
           echo "second is $SECRET2"
-     
+    - name: Debug File Location
+      run: ls -la
 
