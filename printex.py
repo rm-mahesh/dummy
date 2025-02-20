@@ -1,12 +1,10 @@
 import os
-print(os.environ)
+from dotenv import load_dotenv
 
-DUMMYY = os.getenv("DUMMY_SECRET")
+load_dotenv("secrets.env")
+
+secret1=os.getenv("SECRET1")
+secret2=os.getenv("SECRET2")
 
 
-print("Hello am new to github")
-if DUMMYY is not None:
-    print("Goog to go")
-else:
-    print("Issue exists broo")
-print(f'secret : {DUMMYY}')
+print(secret1,secret2)
