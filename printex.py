@@ -18,9 +18,9 @@ print(secret3,secret4)
 print("*************************************")
 print("******* SECRETS FROM GITHUB ACTIONS ********")
 
-SECRET1 = os.environ.get("DUMMY_SECRET")
-SECRET2 = os.environ.get("DUMMY_SECRET_1")
+DB_USER = os.environ.get("DUMMY_SECRET")
+DB_PASS = os.environ.get("DUMMY_SECRET_1")
 
-print(f"DB_USER: {SECRET1}")  
-print(f"DB_PASS: {SECRET2}")
+print(f"DB_USER: {DB_USER}")  
+print(f"DB_PASS: {DB_PASS}")
 print("*************************************")
