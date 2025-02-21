@@ -21,16 +21,16 @@ jobs:
         python -m pip install dotenv
     - name: Load Secrets from GitHub
       env:
-          DB_USER: ${{ secrets.DUMMY_SECRET }}
-          DB_PASS: ${{ secrets.DUMMY_SECRET_1 }}
+          DB_USER: ${{ secrets.TEST_SECRET_1 }}
+          DB_PASS: ${{ secrets.TEST_SECRET_2 }}
       run: |
-          echo "DB_USER is set"
-          echo "DB_PASS is set"
+          echo "DB_USER is set $DB_USER"
+          echo "DB_PASS is set $DB_PASS"
     - name: Run program
       run: python printex.py
       env : 
-          DB_USER: ${{ secrets.DUMMY_SECRET }}
-          DB_PASS: ${{ secrets.DUMMY_SECRET_1 }}
+          DB_USER: ${{ secrets.TEST_SECRET_1 }}
+          DB_PASS: ${{ secrets.TEST_SECRET_2 }}
     
 
 
