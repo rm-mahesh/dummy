@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
 
 jobs:
-  build:
+  GITHUB_SECRET_FILE:
     runs-on: ubuntu-latest
     strategy:
       matrix:

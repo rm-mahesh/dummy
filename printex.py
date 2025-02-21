@@ -18,9 +18,9 @@ load_dotenv("secrets.env")
 # print("*************************************")
 print("******* SECRETS FROM GITHUB ACTIONS ********")
 
-DB_USER = os.environ.get("TEST_SECRET_1")
-DB_PASS = os.environ.get("TEST_SECRET_2")
+TEST_SECRET_1 = os.environ.get("TEST_SECRET_1")
+TEST_SECRET_2 = os.environ.get("TEST_SECRET_2")
 
-print(f"DB_USER: {DB_USER}")  
-print(f"DB_PASS: {DB_PASS}")
+print(f"DB_USER: {TEST_SECRET_1}")  
+print(f"DB_PASS: {TEST_SECRET_2}")
 print("*************************************")
