@@ -1,4 +1,4 @@
-name: Pylint
+name: GUHUB_SECRET_FILE
 
 on: 
     workflow_dispatch:
@@ -27,10 +27,11 @@ jobs:
           echo "DB_USER is set $DB_USER"
           echo "DB_PASS is set $DB_PASS"
     - name: Run program
-      run: python printex.py
-      env : 
-          DB_USER: ${{ secrets.TEST_SECRET_1 }}
-          DB_PASS: ${{ secrets.TEST_SECRET_2 }}
+      run: |
+        export TEST_SECRET_1=${{ secrets.TEST_SECRET_1 }}
+        export TEST_SECRET_2=${{ secrets.TEST_SECRET_2 }}  
+        python printex.py
+      
     
 
 

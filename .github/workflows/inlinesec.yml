@@ -1,4 +1,4 @@
-name: inline secrets
+name: INLINE_SECRETS_FILE
 
 on: 
     workflow_dispatch:
