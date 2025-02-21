@@ -1,0 +1,22 @@
+name: Manually Enter Secrets at Runtime
+
+on:
+  workflow_dispatch:
+    inputs:
+      API_KEY:
+        description: "Enter API Key"
+        required: true
+
+jobs:
+  use-manual-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Pass user input as environment variables
+        env:
+          API_KEY: ${{ inputs.API_KEY }}
+        run: |
+          echo "Running Python script with manually entered secrets..."
+          python script.py

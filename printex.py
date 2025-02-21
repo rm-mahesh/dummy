@@ -16,11 +16,17 @@ load_dotenv("secrets.env")
 
 # print(secret3,secret4)
 # print("*************************************")
-print("******* SECRETS FROM GITHUB ACTIONS ********")
+# print("******* SECRETS FROM GITHUB ACTIONS ********")
 
-TEST_SECRET_1 = os.environ.get("TEST_SECRET_1")
-TEST_SECRET_2 = os.environ.get("TEST_SECRET_2")
+# TEST_SECRET_1 = os.environ.get("TEST_SECRET_1")
+# TEST_SECRET_2 = os.environ.get("TEST_SECRET_2")
 
-print(f"DB_USER: {TEST_SECRET_1}")  
-print(f"DB_PASS: {TEST_SECRET_2}")
+# print(f"DB_USER: {TEST_SECRET_1}")  
+# print(f"DB_PASS: {TEST_SECRET_2}")
+# print("*************************************")
+api_key = os.getenv("API_KEY")
+
+print("*************************************")
+print("******* SECRETS FROM USER INPUT ********")
+print(f"API_KEY: {api_key}") 
 print("*************************************")
