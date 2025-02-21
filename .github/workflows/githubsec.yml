@@ -29,8 +29,8 @@ jobs:
     - name: Run program
       run: python printex.py
       env : 
-          DB_USER: ${{ secrets.DUMMY_SECRET }}
-          DB_PASS: ${{ secrets.DUMMY_SECRET_1 }}
+          SECRET1: ${{ secrets.DUMMY_SECRET }}
+          SECRET2: ${{ secrets.DUMMY_SECRET_1 }}
     
 
 
