@@ -1,7 +1,7 @@
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv("secrets.env")
+# load_dotenv("secrets.env")
 # print("*******SECRETS FROM ENV FILE********")
 # secret1=os.getenv("SECRET1")
 # secret2=os.getenv("SECRET2")
