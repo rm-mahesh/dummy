@@ -18,5 +18,5 @@ jobs:
         env:
           API_KEY: ${{ inputs.API_KEY }}
         run: |
-          echo "Running Python script with manually entered secrets..."
+          echo "Running Python script with manually entered secrets $API_KEY..."
           python printex.py
