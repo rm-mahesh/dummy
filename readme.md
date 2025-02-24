@@ -1,7 +1,7 @@
 
 ## Techniques to include secrets into Github Actions
 
-###
+
 ### Using .env files
    1. Create a .env file in a repository.
    2. Add secrets to .env file, in a Key=Value format.
@@ -13,7 +13,7 @@
       3. load_dotenv("provide path to .env file")
       4. VARIABLE=os.getenv("KEY")
 
-###
+
 ### Using Github Action's Secrets and Variables
    1. In GitHub UI, for any repository, go to Settings -> Secrets and Variables -> Actions -> New Repository Secret -> Provide name and secret value -> Add secret.
    2. NOTE: We must have admin access for a repository, to add any secrets.
@@ -23,7 +23,6 @@
    6. To access the in .py file, we need to export the secrets in the step, before running the python file.
    7. NOTE: These secret values will be masked in the Github workflow logs.
 
-###
 ### Providing Inline Secrets in .yml file
    1. Create a step to first store the secrets into Github environment, so that secrets are accessible accross the workflow.
    2. Under env, we need to store the secrets as shown: echo "KEY_NAME=KEY_VALUE" >> $GITHUB_ENV
@@ -31,7 +30,7 @@
       1. import os
       2. VARIABLE=os.environ.get("KEY_NAME")
 
-###
+
 ### Entering Secrets manually during workflow run
    1. In a .yml file, create a step with any name.
    2. In the same step, under env, we need to add: VARIABLE_NAME: ${{ inputs.KEY_NAME}}
