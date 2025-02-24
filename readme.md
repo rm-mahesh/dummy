@@ -26,9 +26,15 @@
    1. Create a step to first store the secrets into Github environment, so that secrets are accessible accross the workflow.
    2. Under env, we need to store the secrets as shown: echo "KEY_NAME=KEY_VALUE" >> $GITHUB_ENV
    3. To access the secrets in any .py file, we need to follow the below steps:
-    1. import os
-    2. VARIABLE=os.environ.get("KEY_NAME")
+      1. import os
+      2. VARIABLE=os.environ.get("KEY_NAME")
 
 
 ### Entering Secrets manually during workflow run
-   1. 
+   1. In a .yml file, create a step with any name.
+   2. In the same step, under env, we need to add: VARIABLE_NAME: ${{ inputs.KEY_NAME}}
+   3. Input should be provided at the time of running a workflow, same input gets stored in the VARIABLE_NAME, for the key KEY_NAME.
+   4. For accessing the secrets in .py file, we need to follow the below steps:
+      1. import os
+      2. VARIABLE_NAME = os.getenv("key name used for taking input")
+      3. This VARIABLE_NAME can be used inside the python program.
