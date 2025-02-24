@@ -7,10 +7,10 @@
    3. To include these secrets into .yml file, we need to export this .env file. we can do it by using "export $(grep -v '^#' file_name.env | xargs) ".
    4. To print any secret in the workflow using .yml file, we can use echo "$variable_name".
    5. To inherit these secrets into a python program, we need to follow the steps below:
-    1. import os 
-    2. from dotenv import load_dotenv
-    3. load_dotenv("provide path to .env file")
-    4. VARIABLE=os.getenv("KEY")
+      1. import os 
+      2. from dotenv import load_dotenv
+      3. load_dotenv("provide path to .env file")
+      4. VARIABLE=os.getenv("KEY")
 
 
 ### Using Github Action's Secrets and Variables
