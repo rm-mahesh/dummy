@@ -46,3 +46,9 @@ jobs:
           pip list
           tesseract --version
           pdftotext -v
+
+      - name: Run test for ollama
+        run: |
+            source venv/bin/activate
+            ps aux | grep ollama
+
