@@ -1,0 +1,38 @@
+name: "Python Virtual Environment with Caching for(tci_america_extraction)"
+description: "Installs system dependencies and Python packages with caching"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install System Dependencies
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y poppler-utils tesseract-ocr
+
+    - name: Cache Python Virtual Environment
+      uses: actions/cache@v3
+      with:
+        path: venv
+        key: venv-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+        restore-keys: venv-${{ runner.os }}-
+
+    - name: Set up Python Virtual Environment
+      shell: bash
+      run: |
+        if [ ! -d "venv" ]; then
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+        else
+          source venv/bin/activate
+        fi
+    
+    - name: Verify Installations in actions
+        run: |
+          source venv/bin/activate
+          python --version
+          pip list
+          tesseract --version
+          pdftotext -v

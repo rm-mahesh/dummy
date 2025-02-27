@@ -1,56 +1,48 @@
-name: Python Virtual Environment with Caching(tci_america_extraction)
+name: tci_america_extract
 
-on:
-  workflow_dispatch: 
+on:  
+  workflow_dispatch:
+
 
 jobs:
-  PYTHON_VENV_TCI:
-    runs-on: ubuntu-latest 
-
+  tci_america_extraction:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10"]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+    - name: Display System Information
+      run: |
+        cat /etc/os-release
+        sudo -l
+    
+    - name: Configure Python Path
+      run: echo "PYTHONPATH=${PYTHONPATH}:$(pwd)/src" >> $GITHUB_ENV
 
-      - name: Virtual Environment + Cache
-        uses: actions/cache@v3
-        with:
-          path: venv
-          key: venv-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
-          restore-keys: venv-${{ runner.os }}-
+    - name: Import my action.yml for inheriting packages
+      run: .github/actions/install-dependencies
+    
+    - name: Verify Installations in main workflow
+      run: |
+        source venv/bin/activate
+        python --version
+        pip list
+        tesseract --version
+        pdftotext -v
+        
+    - name: run dummy python prgm
+      run: |
+        source venv/bin/activate
+        python dummy.py
 
-      - name: Install System Dependencies (Poppler & Tesseract)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y poppler-utils tesseract-ocr
+    # - name: Run the tci_america_extraction script.
+    #   run: |
+    #     python $(pwd)/src/manufacturer/tci_america/get_revisiondate_v4.py --dir 'revisionv4_test/pdffiles/' --log 'revisionv4_test/logs/logs1.log' --skip_pages '0'
 
-      - name: Set up Virtual Environment
-        run: |
-          if [ ! -d "venv" ]; then
-            python -m venv venv
-            source venv/bin/activate
-            pip install --upgrade pip
-            pip install -r requirements.txt
-          else
-            source venv/bin/activate
-          fi
-
-      - name: Verify Installations
-        run: |
-          source venv/bin/activate
-          python --version
-          pip list
-          tesseract --version
-          pdftotext -v
-
-      - name: Run test for ollama
-        run: |
-            source venv/bin/activate
-            ollama --version
-            ollama serve
-            ps aux | grep ollama
 
