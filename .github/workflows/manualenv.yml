@@ -50,5 +50,7 @@ jobs:
       - name: Run test for ollama
         run: |
             source venv/bin/activate
+            ollama --version
+            ollama serve
             ps aux | grep ollama
 
