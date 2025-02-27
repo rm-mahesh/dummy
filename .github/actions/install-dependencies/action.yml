@@ -30,6 +30,7 @@ runs:
         fi
     
     - name: Verify Installations in actions
+      shell: bash
       run: |
           source venv/bin/activate
           python --version
